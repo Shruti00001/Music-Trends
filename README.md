@@ -1,36 +1,3 @@
-# Music-Trends
-🧠 Overview
-Analyzed a dataset of 140 Spotify tracks to uncover insights into how music preferences evolved over time. This project demonstrates my skills in data cleaning, feature engineering, and visualization using Python libraries like Pandas, Matplotlib, and Seaborn.
-
-🔍 Objectives
-- Identify track distribution across decades
-- Highlight genre trends and artist frequency
-- Create compelling visuals for trend analysis
-  
-🛠️ Tools Used
-- Python (Pandas, NumPy, Seaborn, Matplotlib)
-- Jupyter Notebook
-- GitHub for project documentation and sharing
-  
-📊 Key Visuals
-- Decade-wise track distribution bar chart
-- Genre comparison plots
-- Heatmaps showing correlation between popularity, duration, and year
-  
-💡 Insights
-- Most tracks clustered in the 2010s, with genre diversity peaking during that period
-- Pop and Indie were dominant genres, while others showed niche growth
-- Duration and popularity showed moderate correlation, especially in earlier decades
-  
-🚀 What I Learned
-- Tackled datatype issues using pd.to_numeric()
-- Enhanced plotting techniques with customized palettes and axis formatting
-- Strengthened my GitHub workflow by uploading code, visuals, and documentation
-
-📌 Next Steps
-- Expand analysis to include lyrical sentiment
-- Deploy as an interactive dashboard using Streamlit or Tableau
-- Integrate with Spotify’s API for real-time data tracking
 
 
  Table of Contents
@@ -82,7 +49,7 @@ TTempo Distribution
 Figure 3: Average popularity by genre 
 <img width="2560" height="1528" alt="Screenshot 2025-07-25 214007" src="https://github.com/user-attachments/assets/e8ec4013-48cb-455c-a830-74d2178ba3b6" />
 
-Dependencies
+5.Dependencies
 This project requires the following Python packages:
 pandas
 matplotlib
@@ -91,17 +58,18 @@ openpyxl
 jupyter
 You can install all dependencies using the provided requirements.txt file.
 
-License
+6.License
 This project is licensed under the MIT License.
 
-Contact
+7.Contact
 For questions, suggestions, or contributions, please contact:
 
-Your Name
+8.Your Name
 Email: shrutinds800@gmail.com
 GitHub: https://github.com/Shruti00001
 
-Contributing
+9.Contributing
 Contributions are welcome! Please feel free to submit issues or pull requests. Before contributing, ensure your code follows the project style and includes appropriate documentation.
+
 
 
