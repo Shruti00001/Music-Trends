@@ -1,0 +1,91 @@
+
+import streamlit as st
+
+# Set page configuration
+st.set_page_config(page_title="Music Trends: From Data to Dashboard", layout="centered")
+
+# Project Title and Description
+st.title("Music Trends: From Data to Dashboard")
+st.markdown("""
+A data-driven deep dive into the evolution of music trends over time,  
+transforming raw data into actionable insights and interactive visualizations.
+""")
+
+# Key Skills Section
+st.header("Key Skills")
+
+skills = [
+    ("Web Scraping", "#D6BCFB", "#5A3EBD"),
+    ("Data Structuring", "#BFDBFE", "#1E40AF"),
+    ("Competitive Analysis", "#BBF7D0", "#166534"),
+    ("Data Visualization", "#FEF3C7", "#78350F"),
+]
+
+cols = st.columns(len(skills))
+for idx, (skill, bg_color, text_color) in enumerate(skills):
+    with cols[idx]:
+        st.markdown(
+            f"""
+            <div style='background-color: {bg_color}; color: {text_color}; 
+                        padding: 8px 16px; border-radius: 30px; 
+                        font-weight: 600; text-align: center; font-size: 16px; box-shadow: 2px 2px 5px rgba(0,0,0,0.1);'>
+                {skill}
+            </div>
+            """, unsafe_allow_html=True
+        )
+
+# Project Visuals Section
+st.header("Project Visuals")
+
+images = [
+    "https://shruti00001.github.io/Music-Trends/Screenshot%202025-07-25%20213940.png",
+    "https://shruti00001.github.io/Music-Trends/Screenshot%202025-07-25%20213956.png",
+    "https://shruti00001.github.io/Music-Trends/Screenshot%202025-07-25%20214007.png"
+]
+
+cols = st.columns(3)
+for idx, img_url in enumerate(images):
+    with cols[idx]:
+        st.image(img_url, use_column_width=True)
+
+# Project Files Section
+st.header("Project Files")
+
+st.markdown("""
+<div style="display: flex; gap: 10px; flex-wrap: wrap;">
+    <a href="https://shruti00001.github.io/Music-Trends/Dataset" target="_blank" style="flex:1; background-color: #4F46E5; color: white; 
+    font-weight: bold; padding: 12px; border-radius: 10px; text-align: center; text-decoration: none; box-shadow: 2px 2px 5px rgba(0,0,0,0.2);">View Dataset</a>
+
+    <a href="https://shruti00001.github.io/Music-Trends/output.py" target="_blank" style="flex:1; background-color: #4F46E5; color: white; 
+    font-weight: bold; padding: 12px; border-radius: 10px; text-align: center; text-decoration: none; box-shadow: 2px 2px 5px rgba(0,0,0,0.2);">View Code</a>
+
+    <a href="https://shruti00001.github.io/Music-Trends/csv%20data.py" target="_blank" style="flex:1; background-color: #4F46E5; color: white; 
+    font-weight: bold; padding: 12px; border-radius: 10px; text-align: center; text-decoration: none; box-shadow: 2px 2px 5px rgba(0,0,0,0.2);">View CSV Data</a>
+</div>
+""", unsafe_allow_html=True)
+
+# Let's Connect Section
+st.header("Let's Connect")
+github_icon = """
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.648.5.5 5.648.5 12c0 5.128 3.313 9.479 7.913 11.01.582.105.792-.253.792-.563 0-.277-.01-1.01-.016-1.983-3.218.698-3.897-1.55-3.897-1.55-.527-1.336-1.287-1.692-1.287-1.692-1.052-.718.08-.703.08-.703 1.165.082 1.778 1.198 1.778 1.198 1.034 1.771 2.712 1.26 3.374.964.104-.75.405-1.262.736-1.553-2.566-.292-5.263-1.283-5.263-5.710 0-1.261.45-2.292 1.187-3.103-.119-.292-.514-1.462.114-3.047 0 0 .965-.308 3.162 1.18a10.98 10.98 0 012.877-.388c.976.004 1.957.132 2.877.388 2.192-1.49 3.156-1.18 3.156-1.18.63 1.585.236 2.755.118 3.047.74.811 1.186 1.842 1.186 3.103 0 4.438-2.702 5.415-5.273 5.698.416.360.784 1.082.784 2.182 0 1.575-.015 2.845-.015 3.232 0 .312.21.672.796.557C20.687 21.475 24 17.125 24 12 24 5.648 18.352.5 12 .5z"/></svg>
+"""
+linkedin_icon = """
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24"><path d="M4.983 3.5C3.832 3.5 3 4.43 3 5.65c0 1.22.823 2.15 2.005 2.15h.024a1.379 1.379 0 001.377-1.27A1.368 1.368 0 005 5.61c0-.309-.04-.574-.119-.81a1.428 1.428 0 00-1.898-.3zM3.491 8h3.006v11.629H3.491V8zm5.325 0h2.754v1.616h.03c.383-.726 1.318-1.492 2.718-1.492 2.908 0 3.441 1.913 3.441 4.441V19.63H14.17v-6.47c0-1.542-.553-2.594-1.935-2.594-1.05 0-1.675.704-1.951 1.384-.1.243-.126.581-.126.92v6.76h-2.74V8z"/></svg>
+"""
+
+st.markdown(f"""
+<div style='display: flex; justify-content: center; gap: 20px;'>
+    <a href="https://github.com/Shruti00001" target="_blank" style="color: #4B5563; transition: color 0.3s;">
+        {github_icon}
+    </a>
+    <a href="https://www.linkedin.com/in/shruti00001" target="_blank" style="color: #4B5563; transition: color 0.3s;">
+        {linkedin_icon}
+    </a>
+</div>
+
+<style>
+    a:hover {{
+        color: #111827 !important;
+    }}
+</style>
+""", unsafe_allow_html=True)
