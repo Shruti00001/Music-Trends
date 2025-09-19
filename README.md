@@ -56,5 +56,5 @@ This dashboard goes beyond surface-level stats—it tells a story about how musi
 
 ### 🔗 Let’s Connect  
 Feel free to explore the dashboard or reach out to discuss how data can shape the future of music marketing and platform strategy.  
-**LinkedIn**  [www.linkedin.com/in/shruti-data] | **Portfolio Site** [https://shrutimishra-data-analys-96s6pfc.gamma.site/] | **GitHub**
+**LinkedIn**  [www.linkedin.com/in/shruti-data] | **Portfolio Site** [https://shrutimishra-data-analys-96s6pfc.gamma.site/] | **GitHub** [https://github.com/Shruti00001]
 
