@@ -1,60 +1,49 @@
+# Music Trends Analysis
 
+Exploratory analysis of **140 popular tracks** across 5 streaming platforms (Spotify, YouTube, Amazon Music,
+Apple Music, SoundCloud): data cleaning with pandas, SQL analysis, statistical tests and a Power BI dashboard.
 
-## 🎶 Music Trends Dashboard: Streaming Insights & Genre Evolution
+> **Data note:** the 140 tracks were compiled by hand (`csv data.py`). Popularity and tempo values were entered
+> manually, not pulled from a streaming API. The list is made of well-known hits, so popularity is high and
+> narrow (70 to 98, mean 90.4). Findings describe this dataset only.
 
-### 💡 The Business Problem  
-Music platforms generate massive amounts of listener data, but artists and marketers often struggle to extract meaningful insights. This project tackles that gap by analyzing genre popularity, platform usage, and tempo trends to uncover what drives listener engagement.
+## Business question
+Which genres and platforms are most represented, and does tempo or release era relate to popularity?
 
----
+## Stack
+Python (pandas, SciPy, Matplotlib), SQL (SQLite: window functions, CTE-style aggregation, ROW_NUMBER, RANK),
+Statistics, Power BI
 
-### 🚀 The Solution  
-This end-to-end analytics project transforms raw music data into a visually compelling Power BI dashboard. It combines Python-driven preprocessing with interactive visuals to reveal how music consumption is evolving across platforms and time.
+## Dataset
+`music_trends_data.csv`: `track_id, track_name, artist, genre, platform, popularity, tempo, year` (140 rows, no missing values).
+Release years run from 1801 to 2021; most tracks (111) are from 2000 to 2021.
 
----
+## Cleaning steps
+- Fixed a typo in the last row's year (`2011Load data` became 2011), which would otherwise turn into a missing value.
+- Split combined genre labels (`EDM/Pop`, `Hip-Hop/Pop`, `Funk/Pop`) and used the first one as the primary genre (31 labels reduced to 27).
+- Added a decade column and tempo bands (slow under 90 BPM, mid 90 to 110, fast over 110).
 
-### 📊 Key Insights at a Glance  
-- **Genre Popularity**: Pop and EDM dominate streaming platforms, but niche genres like Lo-fi and Indie are gaining traction among younger audiences.
-- **Platform Trends**: Spotify leads in diversity of genres, while YouTube shows higher engagement for regional and remix content.
-- **Tempo Evolution**: Tracks with mid-tempo (90–110 BPM) show higher average popularity, suggesting a shift toward chill, groove-based listening.
+## Findings (see `analysis_summary.md` for all tables)
+- **Genre mix:** Pop is the largest genre (34 tracks, 24.3%), followed by Rock (10.7%), EDM (10.0%) and Rap (9.3%).
+- **Platforms:** Spotify has 72 tracks, YouTube 27, Amazon Music 21, Apple Music 19, SoundCloud 1. Spotify and YouTube each cover 15 distinct genres. Average popularity is about the same across platforms (ANOVA p = 0.88), so no platform stands out.
+- **Tempo:** mid-tempo tracks (90 to 110 BPM) have slightly **lower** average popularity (89.5) than other tracks (91.0); difference about 1.5 points, t-test p = 0.012. It stays similar after removing the one low-popularity outlier (89.9 vs 91.0, p = 0.015). Correlation between tempo and popularity overall is weak (Spearman rho = 0.08, p = 0.35).
+- **Era:** release year is not meaningfully related to popularity (Spearman rho = 0.08, p = 0.34).
+- Limits: popularity values are narrow and hand-entered, and the list is a selection of hits, so these results cannot be generalised to all music.
 
----
+## Files
+| File | What it does |
+|---|---|
+| `csv data.py` | Original script that builds and explores the dataset |
+| `music_trends_data.csv` | The 140-track dataset |
+| `music_queries.sql` | 7 SQL queries: genre share (window), platform summary (RANK), tempo bands, decades, top 3 per platform (ROW_NUMBER), artists, above-genre-average (AVG OVER) |
+| `analysis.py` | Cleaning, SQL, statistical tests and charts; writes result CSVs, PNGs and `analysis_summary.md` |
+| `top_genres.png`, `tempo_vs_popularity.png`, `platform_popularity.png` | Charts |
 
-### 📈 Project Impact  
-This dashboard goes beyond surface-level stats—it tells a story about how music tastes are changing and where opportunities lie for artists, marketers, and platforms. It showcases my ability to:
+## Run it
+```bash
+pip install -r requirements.txt
+python analysis.py
+```
 
-- Clean & transform complex datasets using Python  
-- Design layered visuals that reveal trends across genre, tempo, and platform  
-- Communicate insights with clarity and visual storytelling  
-
----
-
-### 📷 Visual Highlights  
-- **Genre Distribution Pie Chart**: Shows the top 10 genres by track count, highlighting the rise of niche categories.  
-  *This chart validates the growing diversity in music consumption.*  
-<img width="2560" height="1528" alt="Screenshot 2025-07-25 214007" src="https://github.com/user-attachments/assets/5522c82f-f576-4db6-a4a4-dd3a6e1cd3ea" />
-
-- **Popularity vs. Tempo Scatter Plot**: Reveals the sweet spot in BPM ranges for high-performing tracks.  
-  *This visual links musical structure to listener behavior.*  
-<img width="2560" height="1528" alt="Screenshot 2025-07-25 213940" src="https://github.com/user-attachments/assets/288b490a-e90f-4f37-b37d-4311603f3346" />
-
-- **Platform Usage Bar Chart**: Breaks down track counts and genre diversity across Spotify, YouTube, and Apple Music.  
-  *This chart identifies where different genres thrive.*  
-<img width="2560" height="1528" alt="Screenshot 2025-07-25 213956" src="https://github.com/user-attachments/assets/a5d6279c-6af4-4b81-a8d5-efbe81e4cbdc" />
-
-- **Power BI Dashboard Overview**: Combines KPIs, filters, and trend visuals to create an interactive experience.  
-  *This dashboard empowers stakeholders to explore music data dynamically.*
-<img width="2176" height="1271" alt="Screenshot 2025-09-18 214128" src="https://github.com/user-attachments/assets/febcc745-a3a2-44b0-945a-65f5433e8f1d" />
-
----
-
-### 📂 Project Files  
-- `music_trends_data.csv` – Cleaned dataset with genre, tempo, platform, and popularity metrics  
-- `Music_Trends_Dashboard.pbix` – Power BI file with interactive visuals and DAX measures  
-- 3 Python-generated visuals – Genre pie chart, tempo scatter plot, platform bar chart  
-
----
-
-### 🔗 Let’s Connect  
-Feel free to explore the dashboard or reach out to discuss how data can shape the future of music marketing and platform strategy.  
-**LinkedIn**  [www.linkedin.com/in/shruti-data] | **Portfolio Site** [https://shrutimishra-data-analys-96s6pfc.gamma.site/] | **GitHub** [https://github.com/Shruti00001]
-
+## Dashboard (Power BI)
+<!-- paste your dashboard screenshots here -->

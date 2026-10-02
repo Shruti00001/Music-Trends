@@ -1,0 +1,4 @@
+tempo_band,tracks,avg_popularity
+1 slow (<90 BPM),26,90.88
+2 mid (90-110 BPM),56,89.5
+3 fast (>110 BPM),58,90.98
